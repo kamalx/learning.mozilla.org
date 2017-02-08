@@ -15,7 +15,6 @@ var IconButton = require('../../components/icon-button.jsx');
 var config = require('../../config/config');
 
 var CaseStudies = require('./CaseStudies.jsx');
-var ModalEmail = require('./ModalEmail.jsx');
 var ThankYouModal = require('./ThankYouModal.jsx');
 var validateSignupForm = require('../../components/newsletter-signup/validateSignupForm');
 var BlogSection = require('./BlogSection.jsx');
@@ -45,13 +44,13 @@ var HomePage = React.createClass({
       window.optimizely.push(['trackEvent', 'NewsletterFormSubmitted']);
     }
   },
-  handleEmailBtnClick: function() {
-    ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
-    this.props.showModal(ModalEmail, {
-      hideModal: this.props.hideModal,
-      sourceUrl: this.props.currentPath
-    });
-  },
+  // handleEmailBtnClick: function() {
+  //   ga.event({ category: 'Clicked Home CTA', action: 'Get Email Updates' });
+  //   this.props.showModal(ModalEmail, {
+  //     hideModal: this.props.hideModal,
+  //     sourceUrl: this.props.currentPath
+  //   });
+  // },
   handleTeachBtnClick: function() {
     ga.event({ category: 'Clicked Home CTA', action: 'Teach an Activity' });
   },
@@ -64,12 +63,6 @@ var HomePage = React.createClass({
         <HeroUnit>
           <h1><FormattedMessage id="MLN" /></h1>
           <IconButtons>
-            <IconButton
-              imgSrc="/img/pages/home/svg/icon-newsletter.svg"
-              head={this.context.intl.formatMessage({id: 'get_email_update'})}
-              onClick={this.handleEmailBtnClick}
-              className={"newsletter"}
-            />
             <IconButton
               link="/activities"
               imgSrc="/img/pages/home/svg/icon-teachanactivity.svg"
